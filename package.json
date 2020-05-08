@@ -2,7 +2,7 @@
   "name": "dev-connector",
   "version": "1.0.0",
   "description": "Social Network for developers",
-  "main": " server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server",
     "server": "nodemon server"
