@@ -8,9 +8,9 @@ const { check, validationResult } = require('express-validator');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-// @route GET api/profile/me
-// @desc Get current users profile
-// @access Private
+// @route   GET api/profile/me
+// @desc    Get current users profile
+// @access  Private
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -28,9 +28,9 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
-// @route POST api/profile
-// @desc Create or update a user profile
-// @access Private
+// @route   POST api/profile
+// @desc    Create or update a user profile
+// @access  Private
 router.post(
   '/',
   [
@@ -108,9 +108,9 @@ router.post(
   }
 );
 
-// @route GET api/profile
-// @desc Get all profiles
-// @access Public
+// @route   GET api/profile
+// @desc    Get all profiles
+// @access  Public
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
@@ -121,9 +121,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route GET api/profile/user/:user_id
-// @desc Get profile by user ID
-// @access Public
+// @route   GET api/profile/user/:user_id
+// @desc    Get profile by user ID
+// @access  Public
 router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -142,9 +142,9 @@ router.get('/user/:user_id', async (req, res) => {
   }
 });
 
-// @route DELETE api/profile
-// @desc Delete profile, user & posts
-// @access Private
+// @route   DELETE api/profile
+// @desc    Delete profile, user & posts
+// @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
     // @todo - remove users posts
@@ -161,9 +161,9 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-// @route PUT api/profile/experience
-// @desc Add profile experience
-// @access Private
+// @route   PUT api/profile/experience
+// @desc    Add profile experience
+// @access  Private
 router.put(
   '/experience',
   [
@@ -215,9 +215,9 @@ router.put(
   }
 );
 
-// @route DELETE api/profile/experience/:exp_id
-// @desc Delete experience from profile
-// @access Private
+// @route   DELETE api/profile/experience/:exp_id
+// @desc    Delete experience from profile
+// @access  Private
 router.delete('/experience/:exp_id', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id });
@@ -238,9 +238,9 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
   }
 });
 
-// @route PUT api/profile/education
-// @desc Add profile education
-// @access Private
+// @route   PUT api/profile/education
+// @desc    Add profile education
+// @access  Private
 router.put(
   '/education',
   [
@@ -293,9 +293,9 @@ router.put(
   }
 );
 
-// @route DELETE api/profile/education/:edu_id
-// @desc Delete education from profile
-// @access Private
+// @route   DELETE api/profile/education/:edu_id
+// @desc    Delete education from profile
+// @access  Private
 router.delete('/education/:edu_id', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id });
@@ -316,9 +316,9 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
   }
 });
 
-// @route GET api/profile/github/:username
-// @desc Get user repos from Github
-// @access Public
+// @route   GET api/profile/github/:username
+// @desc    Get user repos from Github
+// @access  Public
 router.get('/github/:username', (req, res) => {
   try {
     const options = {
