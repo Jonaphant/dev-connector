@@ -27,7 +27,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     }
   };
 
-  console.log(isAuthenticated);
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
