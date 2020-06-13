@@ -30,6 +30,11 @@ const ProfileItem = ({
             <i className="fas fa-check"></i> {skill}
           </li>
         ))}
+        {skills.length > 4 && (
+          <li className="text-primary">
+            <i className="fas fa-check"></i> and More...
+          </li>
+        )}
       </ul>
     </div>
   );
